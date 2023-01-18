@@ -14,7 +14,6 @@ const CustomOption = ({ children, ...props }) => {
 };
 
 const GenreSelect = ({ selectedGenres, onSelect }) => {
-  console.log(selectedGenres);
   const genreOptions = moviesData
     .map((i) => {
       return {
@@ -38,7 +37,6 @@ const GenreSelect = ({ selectedGenres, onSelect }) => {
       <Select
         // common
         name="genre"
-        required
         placeholder="Genre"
         // for select
         isMulti
