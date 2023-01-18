@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-
+import moviesData from "../../data/movies.json";
 import s from "./NameSelect.module.css";
 
 const NameSelect = () => {
@@ -10,6 +10,13 @@ const NameSelect = () => {
   const handleSelectChange = (value) => {
     setName(value);
   };
+
+  const movieOptions = moviesData.map((i) => {
+    return {
+      value: i["name"],
+      label: i["name"],
+    };
+  });
 
   return (
     <label className={s.label}>
@@ -26,8 +33,7 @@ const NameSelect = () => {
         value={selectedMovie}
         onChange={setSelectedMovie}
         // for menu (list of options)
-        // options={selectOptions}
-        menuIsOpen={name.length > 0}
+        options={movieOptions}
         // for styles
         // unstyled
         classNamePrefix="react-select"

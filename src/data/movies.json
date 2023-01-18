@@ -1,0 +1,27 @@
+[
+  {
+    "name": "The Matrix",
+    "rating": 7.5,
+    "genre": "Action"
+  },
+  {
+    "name": "Focus",
+    "rating": 6.9,
+    "genre": "Comedy"
+  },
+  {
+    "name": "The Lazarus Effect",
+    "rating": 6.4,
+    "genre": "Thriller"
+  },
+  {
+    "name": "Everly",
+    "rating": 5.0,
+    "genre": "Action"
+  },
+  {
+    "name": "Maps to the Stars",
+    "rating": 7.5,
+    "genre": "Drama"
+  }
+]
