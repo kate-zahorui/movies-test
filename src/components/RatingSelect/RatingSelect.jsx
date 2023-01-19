@@ -1,8 +1,8 @@
 import React from "react";
 import Select, { components } from "react-select";
 import { FiCheck } from "react-icons/fi";
+import { RatingStar } from "../";
 import s from "./RatingSelect.module.css";
-import svg from "../../assets/sprite.svg";
 
 const CustomOption = ({ children, ...props }) => {
   return (
@@ -13,17 +13,9 @@ const CustomOption = ({ children, ...props }) => {
         {props.value !== "Any rating" &&
           [...Array(10)].map((i, index) => {
             if (props.value > index) {
-              return (
-                <svg width="16px" height="16px" key={`rating-${index}`}>
-                  <use href={`${svg}#icon-star-full`}></use>
-                </svg>
-              );
+              return <RatingStar type="full" key={`rating-${index}`} />;
             }
-            return (
-              <svg width="16px" height="16px" key={`rating-${index}`}>
-                <use href={`${svg}#icon-star-empty`}></use>
-              </svg>
-            );
+            return <RatingStar type="empty" key={`movie-rating-${index}`} />;
           })}
       </div>
     </components.Option>
@@ -43,6 +35,23 @@ const RatingSelect = ({ selectedRating, onSelect }) => {
     label: "Any rating",
   });
 
+  const handleRatingSelect = (values) => {
+    if (values.length === 0) {
+      onSelect(values);
+      return;
+    }
+    const isAny = values[values.length - 1]?.value === "Any rating";
+    if (isAny) {
+      onSelect([values[values.length - 1]]);
+      return;
+    }
+    if (!isAny) {
+      const notAnyValues = values.filter((i) => i.value !== "Any rating");
+      onSelect(notAnyValues);
+      return;
+    }
+  };
+
   return (
     <label>
       <Select
@@ -52,7 +61,7 @@ const RatingSelect = ({ selectedRating, onSelect }) => {
         // for select
         isMulti
         value={selectedRating}
-        onChange={onSelect}
+        onChange={handleRatingSelect}
         options={ratingOptions}
         // for menu
         closeMenuOnSelect={false}

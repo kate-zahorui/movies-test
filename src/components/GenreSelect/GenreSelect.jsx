@@ -32,6 +32,23 @@ const GenreSelect = ({ selectedGenres, onSelect }) => {
     label: "Any genre",
   });
 
+  const handleGenreSelect = (values) => {
+    if (values.length === 0) {
+      onSelect(values);
+      return;
+    }
+    const isAny = values[values.length - 1]?.value === "Any genre";
+    if (isAny) {
+      onSelect([values[values.length - 1]]);
+      return;
+    }
+    if (!isAny) {
+      const notAnyValues = values.filter((i) => i.value !== "Any genre");
+      onSelect(notAnyValues);
+      return;
+    }
+  };
+
   return (
     <label>
       <Select
@@ -41,7 +58,7 @@ const GenreSelect = ({ selectedGenres, onSelect }) => {
         // for select
         isMulti
         value={selectedGenres}
-        onChange={onSelect}
+        onChange={handleGenreSelect}
         options={genreOptions}
         // for menu
         closeMenuOnSelect={false}
