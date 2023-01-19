@@ -1,13 +1,12 @@
 import React from "react";
 import Select, { components } from "react-select";
-import { FiCheck } from "react-icons/fi";
+import { Checkbox } from "../";
 import moviesData from "../../data/movies.json";
-import s from "./GenreSelect.module.css";
 
 const CustomOption = ({ children, ...props }) => {
   return (
     <components.Option {...props}>
-      <div className={s.checkbox}>{props.isSelected && <FiCheck />}</div>
+      <Checkbox isSelected={props.isSelected} />
       {children}
     </components.Option>
   );

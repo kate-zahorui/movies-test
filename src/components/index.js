@@ -1,4 +1,5 @@
 export { default as Container } from "./Container/Container";
+export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as Form } from "./Form/Form";
 export { default as GenreSelect } from "./GenreSelect/GenreSelect";
 export { default as MovieRating } from "./MovieRating/MovieRating";

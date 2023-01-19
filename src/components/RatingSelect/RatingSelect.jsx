@@ -1,13 +1,11 @@
 import React from "react";
 import Select, { components } from "react-select";
-import { FiCheck } from "react-icons/fi";
-import { RatingStar } from "../";
-import s from "./RatingSelect.module.css";
+import { Checkbox, RatingStar } from "../";
 
 const CustomOption = ({ children, ...props }) => {
   return (
     <components.Option {...props}>
-      <div className={s.checkbox}>{props.isSelected && <FiCheck />}</div>
+      <Checkbox isSelected={props.isSelected} />
       <div style={{ display: "flex", gap: "3px" }}>
         {props.value === "Any rating" && children}
         {props.value !== "Any rating" &&

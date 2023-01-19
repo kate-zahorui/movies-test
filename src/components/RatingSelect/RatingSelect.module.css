@@ -1,9 +1,0 @@
-.checkbox {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border: 1px solid #000000;
-}
