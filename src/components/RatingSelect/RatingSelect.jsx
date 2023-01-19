@@ -66,8 +66,7 @@ const RatingSelect = ({ selectedRating, onSelect }) => {
         hideSelectedOptions={false}
         components={{ Option: CustomOption }}
         // for styles
-        // unstyled
-        // classNamePrefix="react-select"
+        unstyled
         styles={selectStyles}
       />
     </label>
@@ -75,15 +74,25 @@ const RatingSelect = ({ selectedRating, onSelect }) => {
 };
 
 const selectStyles = {
+  container: (base) => ({
+    ...base,
+    padding: "5px 9px 5px 16px",
+    border: "1px solid #979797",
+  }),
   placeholder: (base) => ({
     ...base,
     color: "#171717",
   }),
   menu: (base) => ({
     ...base,
+    left: 0,
+    marginTop: "4px",
     minWidth: "250px",
     minHeight: "300px",
-    paddingTop: "5px",
+    border: "1px solid #979797",
+    "& > div": {
+      padding: "12px",
+    },
   }),
   multiValue: (base) => ({
     ...base,

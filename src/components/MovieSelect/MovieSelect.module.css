@@ -1,3 +1,23 @@
 .label {
   width: 440px;
 }
+
+.option__text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option__name {
+  color: 000000;
+}
+
+.option__genre {
+  color: #777777;
+}
+
+.rating__container {
+  display: inline-flex;
+  gap: 3px;
+  padding: 4px;
+  background-color: #ffffff;
+}

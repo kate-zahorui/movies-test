@@ -11,18 +11,11 @@ const CustomOption = (props) => {
 
   return (
     <components.Option {...props}>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <p>{children}</p>
-        <p>{value?.genre}</p>
+      <div className={s.option__text}>
+        <p className={s.option__name}>{children}</p>
+        <p className={s.option__genre}>{value?.genre}</p>
       </div>
-      <div
-        style={{
-          display: "inline-flex",
-          gap: "3px",
-          padding: "4px",
-          backgroundColor: "#fff",
-        }}
-      >
+      <div className={s.rating__container}>
         <MovieRating fullRating={fullRating} currentRating={currentRating} />
       </div>
     </components.Option>
@@ -53,8 +46,7 @@ const MovieSelect = ({ selectedMovie, onSelect, movieOptions }) => {
         // for menu (list of options)
         components={{ Option: CustomOption }}
         // for styles
-        // unstyled
-        // classNamePrefix="react-select"
+        unstyled
         styles={selectStyles}
       />
     </label>
@@ -62,10 +54,19 @@ const MovieSelect = ({ selectedMovie, onSelect, movieOptions }) => {
 };
 
 const selectStyles = {
+  container: (base) => ({
+    ...base,
+    padding: "5px 9px 5px 16px",
+    border: "1px solid #979797",
+  }),
   menu: (base) => ({
     ...base,
-    minHeight: "300px",
-    paddingTop: "5px",
+    left: 0,
+    marginTop: "4px",
+    border: "1px solid #979797",
+    "& > div": {
+      padding: "12px",
+    },
   }),
   option: (base, { isSelected }) => ({
     ...base,
